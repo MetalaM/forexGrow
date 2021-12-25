@@ -1,5 +1,7 @@
 package com.example;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 /**
  * Hello world!
  *
@@ -8,13 +10,21 @@ public class App
 {
     public static void main( String[] args )
     {
-        int a = 2;
-        int b = 3;
-        float c = 5.0f;
-        String text1 = "dsfadgdafgdfg ";
-        String text2 = "jjjjjjjjjjjj";
+        Car newCar1 = new Car();
+        Car newCar2 = new Car();
+
+        newCar2.color = "red";
+
+        System.out.println( newCar1.color);
+        System.out.println( newCar1.fuel);
+        newCar1.availebleDistance();
+
+        System.out.println("");
 
 
-        System.out.println( text1 + text2 + a);
+        System.out.println( newCar2.color);
+        System.out.println( newCar2.fuel);
+        newCar2.availebleDistance();
+
     }
 }
