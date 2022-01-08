@@ -26,7 +26,7 @@ public class App
         String OS_Windows = "Windows";
         String OS;
 
-        OS = OS_Windows;
+        OS = OS_Linux;
         if(OS==OS_Windows){
             System.setProperty("webdriver.chrome.driver", "./forex/src/resources/chromedriver.exe");
         }
