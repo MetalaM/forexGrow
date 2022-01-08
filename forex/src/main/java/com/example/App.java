@@ -26,6 +26,9 @@ public class App
         String OS_Windows = "Windows";
         String OS;
 
+        String block = "(//h4)[1]";
+        String startButton = "(//a[contains(text(), 'Start trading')])[1]";
+
         OS = OS_Linux;
         if(OS==OS_Windows){
             System.setProperty("webdriver.chrome.driver", "./forex/src/resources/chromedriver.exe");
@@ -41,15 +44,30 @@ public class App
 
         driver.manage().window().maximize();
 
-        List<WebElement> listOfElements = driver.findElements(By.xpath(articles));
+        WebElement element = driver.findElement(By.xpath(startButton));
+        System.out.println("*************************");
+        System.out.println(element.getCssValue("color"));
+        System.out.println("*************************");
+        String a=element.getCssValue("color");
+        String b="rgba(255, 255, 255, 2)";
+        Assert.isTrue(a.equals(b), "Fuck");
+       // System.out.println("*************************");
+      //  System.out.println(elementBlock.isDisplayed());
+      //  System.out.println(elementBlock.getText());
+       // System.out.println("*************************");
 
-        for (WebElement webElement : listOfElements) {
-            String text = webElement.getText();
-            System.out.println(text);
-            Assert.isTrue(!webElement.getText().contains("Taras"), "String doesn't contain specific text");
-        }
+      //  Assert.isTrue(!elementBlock.getText().contains("Car"), "String doesn't contain specific text");
+        
 
-        Thread.sleep(10000);
+        //List<WebElement> listOfElements = driver.findElements(By.xpath(articles));
+
+       // for (WebElement webElement : listOfElements) {
+        //    String text = webElement.getText();
+       //     System.out.println(text);
+       //     Assert.isTrue(!webElement.getText().contains("Taras"), "String doesn't contain specific text");
+       // }
+
+        Thread.sleep(5000);
         driver.quit();
         driver.close();
 
